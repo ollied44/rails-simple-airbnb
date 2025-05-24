@@ -1,0 +1,19 @@
+<div class="container mt-5" style="max-width: 1100px;">
+
+  <% if @flat.picture_url.present? %>
+    <img src="<%= @flat.picture_url %>" alt="<%= @flat.name %>" class="img-fluid mb-4 rounded shadow" style="max-height: 600px; object-fit: cover; width: 100%;">
+  <% end %>
+
+  <h1 class="fw-bold mb-3"><%= @flat.name %></h1>
+
+  <p class="text-muted mb-1"><i class="bi bi-geo-alt"></i> <%= @flat.address %></p>
+  <p class="mb-4"><%= @flat.description %></p>
+
+  <p><strong>Price per night:</strong> $<%= @flat.price_per_night %></p>
+  <p><strong>Number of guests:</strong> <%= @flat.number_of_guests %></p>
+
+  <div class="mt-4">
+    <%= link_to "Back to Flats", flats_path, class: "btn btn-outline-primary" %>
+    <%= link_to "Edit Flat", edit_flat_path(@flat), class: "btn btn-primary" %>
+  </div>
+</div>

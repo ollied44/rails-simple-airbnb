@@ -1,0 +1,36 @@
+<div class="container mt-5">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+  </div>
+
+<div class="p-4 mb-4 bg-light rounded-3 text-center shadow-sm">
+  <h1 class="display-5 fw-bold">Find Your Perfect Stay</h1>
+  <p class="lead">Browse our exclusive listings of beautiful homes around the world.</p>
+</div>
+
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow">
+
+        <% if flat.picture_url.present? %>
+            <img src="<%= flat.picture_url %>" alt="<%= flat.name %>" class="card-img-top" style="height: 200px; object-fit: cover;">
+          <% end %>
+
+          <div class="card-body">
+            <h5 class="card-title"><%= flat.name %></h5>
+            <p class="card-text"><%= flat.description.truncate(80) %></p>
+            <p class="card-text">
+              <strong>Price:</strong> $<%= flat.price_per_night %> / night<br>
+              <strong>Guests:</strong> <%= flat.number_of_guests %>
+            </p>
+            <%= link_to "View Details", flat_path(flat), class: "btn btn-primary" %>
+            <%= link_to "Edit", edit_flat_path(flat), class: "btn btn-outline-secondary" %>
+            <%= link_to "Delete", flat_path(flat), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this flat?" }, class: "btn btn-outline-danger" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

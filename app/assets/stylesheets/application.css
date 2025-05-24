@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+:root {
+  --bs-primary: #002147;
+  --bs-primary-rgb: 0, 33, 71;
+  --bs-body-color: #002147;
+  --bs-heading-color: #002147;
+  --bs-link-color: #002147;
+  --bs-link-hover-color: #001b3a;
+  --bs-btn-color: #fff;
+}
